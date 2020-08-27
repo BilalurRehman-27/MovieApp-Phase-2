@@ -36,3 +36,13 @@ export const getUpcomingMovies = () => {
     .then((res) => res.json())
     .then((json) => json.results);
 };
+
+export const getSortedMoviesBy = ({orderBy,releaseDate,}) => {
+  const decadeRange = releaseDate.split("_");
+  return fetch(
+    `https://api.themoviedb.org/3/discover/movie?api_key=bc495153c361987b9b8f50d7ec96ed8e&language=en-US
+     &include_adult=false&page=1&sort_by=${orderBy}.desc&primary_release_date.gte=${decadeRange[1]}&primary_release_date.lte=${decadeRange[0]}`
+  )
+    .then((res) => res.json())
+    .then((json) => json.results);
+};

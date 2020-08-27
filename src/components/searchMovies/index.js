@@ -1,10 +1,9 @@
 /* https://www.freecodecamp.org/news/learn-react-in-1-hour-by-building-a-movie-search-app/
  */
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import { DebounceInput } from "react-debounce-input";
 import MoviesList from "../movieList";
 import AddToFavoritesButton from "../buttons/addToFavorites";
-import getMovies from "../../api/tmdb-api";
 /* eslint-disable */
 
 export default function SearchMovies() {

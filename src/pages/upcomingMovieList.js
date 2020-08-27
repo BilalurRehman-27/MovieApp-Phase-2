@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import PageTemplate from "../components/templateMovieListPage";
-import AddToFavoritesButton from "../components/buttons/addToFavorites";
 import { getUpcomingMovies } from "../api/tmdb-api";
 
 const UpcomingMovieListPage = () => {

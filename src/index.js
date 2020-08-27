@@ -11,7 +11,6 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from "./pages/addMovieReviewPage";
 import UpcomingMovieListPage from "./pages/upcomingMovieList";
-import SearchMovies from "./components/searchMovies";
 import searchMoviesPage from "./pages/searchMovies";
 
 const App = () => {

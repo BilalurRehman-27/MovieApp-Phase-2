@@ -37,72 +37,70 @@ const FilterControls = (props) => {
             placeholder="Title Search"
             onChange={handleTextChange}
           />
-          
-              <span>Genre:</span>
-              <select id="genre" onChange={handleGenreChange}>
-                {context.genres.map((genre) => {
-                  return (
-                    <option key={genre.id} value={genre.id}>
-                      {genre.name}
-                    </option>
-                  );
-                })}
-              </select>
-              <br></br>              <br></br>
-
-              <span>Release Date:</span>
-              <select name="year" onChange={handleReleaseDateFilter}>
-                <option value="0">All</option>
-                <option value="2010-2020">2010-2020</option>
-                <option value="2000-2009">2000-2009</option>
-                <option value="1990-1999">1990-1999</option>
-                <option value="1980-1989">1980-1989</option>
-                <option value="1970-1979">1970-1979</option>
-                <option value="1900-1969">1900-1969</option>
-              </select>
-              <span>Ratings</span>
-              <select name="rating" onChange={handleRatingFilter}>
-                <option value="0">All</option>
-                <option value="9">9+</option>
-                <option value="8">8+</option>
-                <option value="7">7+</option>
-                <option value="6">6+</option>
-                <option value="5">5+</option>
-                <option value="4">4+</option>
-                <option value="3">3+</option>
-                <option value="2">2+</option>
-                <option value="1">1+</option>
-              </select>
-              <span>Order By:</span>
-              <select id="orderBy" onChange={handleOrderByChange}>
-                <option key="releaseDate" value="releaseDate">
-                  Release Date
+          <span>Genre:</span>
+          <select id="genre" onChange={handleGenreChange}>
+            {context.genres.map((genre) => {
+              return (
+                <option key={genre.id} value={genre.id}>
+                  {genre.name}
                 </option>
-                <option key="popularity" value="popularity">
-                  Popularity
-                </option>
-                <option key="name" value="name">
-                  Name
-                </option>
-              </select>
-              <span>Language:</span>
-              <select id="length" onChange={handleMovieLanguageFilter}>
-                <option key="0" value="0">
-                  All
-                </option>
-                <option key="english" value="en">
-                  English
-                </option>
-                <option key="french" value="ru">
-                  Russian
-                </option>
-                <option key="japanese" value="ja">
-                  Japanese
-                </option>
-                <option key="korean" value="ko">
-                  Korean
-                </option>
-              </select>
+              );
+            })}
+          </select>
+          <br></br> <br></br>
+          <span>Release Date:</span>
+          <select name="year" onChange={handleReleaseDateFilter}>
+            <option value="0">All</option>
+            <option value="2020-01-01_2010-01-01">2010-2020</option>
+            <option value="2009-01-01_2000-01-01">2000-2009</option>
+            <option value="1999-01-01_1990-01-01">1990-1999</option>
+            <option value="1989-01-01_1980-01-01">1980-1989</option>
+            <option value="1979-01-01_1970-01-01">1970-1979</option>
+            <option value="1909-01-01_1960-01-01">1900-1969</option>
+          </select>
+          <span>Ratings</span>
+          <select name="rating" onChange={handleRatingFilter}>
+            <option value="0">All</option>
+            <option value="9">9+</option>
+            <option value="8">8+</option>
+            <option value="7">7+</option>
+            <option value="6">6+</option>
+            <option value="5">5+</option>
+            <option value="4">4+</option>
+            <option value="3">3+</option>
+            <option value="2">2+</option>
+            <option value="1">1+</option>
+          </select>
+          <span>Sort By:</span>
+          <select id="orderBy" onChange={handleOrderByChange}>
+            <option key="popularity" value="popularity">
+              Popularity
+            </option>
+            <option key="releaseDate" value="release_date">
+              Release Date
+            </option>
+            {/* <option key="name" value="name">
+              Name
+            </option> */}
+          </select>
+          <span>Language:</span>
+          <select id="length" onChange={handleMovieLanguageFilter}>
+            <option key="0" value="0">
+              All
+            </option>
+            <option key="english" value="en">
+              English
+            </option>
+            <option key="french" value="ru">
+              Russian
+            </option>
+            <option key="japanese" value="ja">
+              Japanese
+            </option>
+            <option key="korean" value="ko">
+              Korean
+            </option>
+          </select>
         </h4>
       </div>
     </div>
