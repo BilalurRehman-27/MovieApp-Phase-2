@@ -49,8 +49,7 @@ const FilterControls = (props) => {
           </select>
           <br></br> <br></br>
           <span>Release Date:</span>
-          <select name="year" onChange={handleReleaseDateFilter}>
-            <option value="0">All</option>
+          <select name="year" onChange={handleReleaseDateFilter}>            
             <option value="2020-01-01_2010-01-01">2010-2020</option>
             <option value="2009-01-01_2000-01-01">2000-2009</option>
             <option value="1999-01-01_1990-01-01">1990-1999</option>
@@ -73,15 +72,15 @@ const FilterControls = (props) => {
           </select>
           <span>Sort By:</span>
           <select id="orderBy" onChange={handleOrderByChange}>
-            <option key="popularity" value="popularity">
-              Popularity
+            <option key="0" value="0">
+              None
             </option>
-            <option key="releaseDate" value="release_date">
+            <option key="releaseDate" value="primary_release_date">
               Release Date
             </option>
-            {/* <option key="name" value="name">
-              Name
-            </option> */}
+            <option key="vote_average" value="vote_average">
+              Movie Ratings
+            </option>
           </select>
           <span>Language:</span>
           <select id="length" onChange={handleMovieLanguageFilter}>

@@ -8,7 +8,7 @@ const MovieListPageTemplate = ({ movies, title, action }) => {
   const [sortedMovies, setSortedMovies] = useState([]);
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
-  const [orderBy, setOrderByFilter] = useState("popularity");
+  const [orderBy, setOrderByFilter] = useState("0");
   const [releaseDate, setReleaseDate] = useState("2020-01-01_2010-01-01");
   const [ratings, setRatings] = useState("0");
   const [language, setMovieLanguage] = useState("0");
