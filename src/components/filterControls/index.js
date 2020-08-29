@@ -27,6 +27,9 @@ const FilterControls = (props) => {
     handleChange(e, "language", e.target.value);
   };
 
+  if (window.location.pathname !== "/") {
+    return null
+  }
   return (
     <div className="row bg-warning">
       <div className="col-md-12">
@@ -49,7 +52,7 @@ const FilterControls = (props) => {
           </select>
           <br></br> <br></br>
           <span>Release Date:</span>
-          <select name="year" onChange={handleReleaseDateFilter}>            
+          <select name="year" onChange={handleReleaseDateFilter}>
             <option value="2020-01-01_2010-01-01">2010-2020</option>
             <option value="2009-01-01_2000-01-01">2000-2009</option>
             <option value="1999-01-01_1990-01-01">1990-1999</option>
@@ -75,10 +78,10 @@ const FilterControls = (props) => {
             <option key="0" value="0">
               None
             </option>
-            <option key="releaseDate" value="primary_release_date">
+            <option key="releaseDate" value="release_date.desc">
               Release Date
             </option>
-            <option key="vote_average" value="vote_average">
+            <option key="vote_average" value="vote_average.desc">
               Movie Ratings
             </option>
           </select>

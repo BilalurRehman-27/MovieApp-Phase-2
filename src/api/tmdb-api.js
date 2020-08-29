@@ -1,3 +1,5 @@
+import generate from "@babel/generator";
+
 export const getMovies = () => {
   return fetch(
     `https://api.themoviedb.org/3/discover/movie?api_key=bc495153c361987b9b8f50d7ec96ed8e&language=en-US
@@ -37,15 +39,41 @@ export const getUpcomingMovies = () => {
     .then((json) => json.results);
 };
 
-export const getSortedMoviesBy = ({ orderBy, releaseDate }) => {
+export const getSortedMoviesBy = async ({ nameFilter, orderBy, releaseDate, ratings, genreFilter, language }) => {
   const decadeRange = releaseDate.split("_");
-  const url =
-    orderBy === "0"
-      ? `https://api.themoviedb.org/3/discover/movie?api_key=bc495153c361987b9b8f50d7ec96ed8e&language=en-US
-     &include_adult=false&page=1&primary_release_date.gte=${decadeRange[1]}&release_date.lte=${decadeRange[0]}`
-      : `https://api.themoviedb.org/3/discover/movie?api_key=bc495153c361987b9b8f50d7ec96ed8e&language=en-US
-     &include_adult=false&page=1&sort_by=${orderBy}.desc&release_date.gte=${decadeRange[1]}&primary_release_date.lte=${decadeRange[0]}`;
-  return fetch(url)
+  let baseUrl = "https://api.themoviedb.org/3/discover/movie?api_key=bc495153c361987b9b8f50d7ec96ed8e&include_adult=false&page=1"
+
+  baseUrl = baseUrl + `&release_date.gte=${decadeRange[1]}&release_date.lte=${decadeRange[0]}`
+  if (orderBy) {
+    baseUrl = baseUrl + `&sort_by=${orderBy}`;
+  }
+
+  if (genreFilter) {
+    baseUrl = baseUrl + `&with_genres=${genreFilter}`;
+  }
+
+  if (ratings) {
+    baseUrl = baseUrl + `&vote_average.gte=${ratings}`;
+  }
+
+  if (language) {
+    baseUrl = baseUrl + `&with_original_language=${language}`;
+  }
+
+
+
+
+  return fetch(baseUrl)
     .then((res) => res.json())
-    .then((json) => json.results);
+    .then((json) => {
+      let results = json.results
+      if (nameFilter) {
+        return results
+          .filter((m) => {
+            return m.title.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
+          })
+      }
+
+      return results
+    });
 };
