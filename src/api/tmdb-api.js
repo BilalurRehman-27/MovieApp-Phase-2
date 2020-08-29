@@ -42,9 +42,9 @@ export const getSortedMoviesBy = ({ orderBy, releaseDate }) => {
   const url =
     orderBy === "0"
       ? `https://api.themoviedb.org/3/discover/movie?api_key=bc495153c361987b9b8f50d7ec96ed8e&language=en-US
-     &include_adult=false&page=1&primary_release_date.gte=${decadeRange[1]}&primary_release_date.lte=${decadeRange[0]}`
+     &include_adult=false&page=1&primary_release_date.gte=${decadeRange[1]}&release_date.lte=${decadeRange[0]}`
       : `https://api.themoviedb.org/3/discover/movie?api_key=bc495153c361987b9b8f50d7ec96ed8e&language=en-US
-     &include_adult=false&page=1&sort_by=${orderBy}.desc&primary_release_date.gte=${decadeRange[1]}&primary_release_date.lte=${decadeRange[0]}`;
+     &include_adult=false&page=1&sort_by=${orderBy}.desc&release_date.gte=${decadeRange[1]}&primary_release_date.lte=${decadeRange[0]}`;
   return fetch(url)
     .then((res) => res.json())
     .then((json) => json.results);
